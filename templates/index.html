@@ -1,0 +1,41 @@
+{% extends 'base.html' %} {% block body %}
+<h2>Welcome to Flask Todo App</h2>
+<form class="mb-3" method="post">
+  <div class="mb-3">
+    <label for="todo" class="form-label">Enter todo</label>
+    <input
+      type="text"
+      class="form-control"
+      id="todo"
+      name="content"
+      aria-describedby="emailHelp"
+    />
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<div class="py-4">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Task</th>
+        <th scope="col">Added</th>
+        <th scope="col">Update</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for task in tasks %}
+      <tr>
+        <th scope="row">{{task.content}}</th>
+        <td>{{task.date_created}}</td>
+        <td>
+          <a href="/update/{{task.id}}" class="btn btn-primary">Update</a>
+        </td>
+        <td><a href="/delete/{{task.id}}" class="btn btn-danger">Delete</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% block body %}
+<h2>Update Todo</h2>
+<form class="mb-3" method="post" action="/update/{{task.id}}">
+  <div class="mb-3">
+    <label for="todo" class="form-label">Enter todo</label>
+    <input
+      type="text"
+      class="form-control"
+      id="todo"
+      name="content"
+      value="{{task.content}}"
+      aria-describedby="emailHelp"
+    />
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}
